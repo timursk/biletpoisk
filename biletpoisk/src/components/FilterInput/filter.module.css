@@ -1,0 +1,39 @@
+.container {
+    font-family: 'San Francisco Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.label {
+    margin-bottom: 4px;
+}
+
+.input {
+    width: 100%;
+    max-width: 360px;
+    height: 40px;
+    padding: 0 16px;
+    border: 1px solid #e1e3e6;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.input:focus,
+.input:active {
+    outline: none;
+    border-color: #ff5500;
+}
+
+.input::placeholder {
+    color: #999fa6;
+}
+
+.input:-ms-input-placeholder {
+    color: #999fa6;
+}
+
+.input::-ms-input-placeholder {
+    color: #999fa6;
+}
