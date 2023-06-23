@@ -1,0 +1,37 @@
+.btn {
+    all: unset;
+    box-sizing: border-box;
+
+    position: relative;
+    width: 100%;
+    padding: 24px;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.icon {
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+}
+
+.rotateIcon {
+    transform: rotate(180deg);
+}
+
+.questionContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.question {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+}
+
+.info {
+    margin-top: 16px;
+    line-height: 24px;
+}
