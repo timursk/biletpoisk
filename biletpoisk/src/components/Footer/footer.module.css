@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    max-width: 1920px;
+    color: #fff;
+    background-color: #333;
+    font-size: 20px;
+}
+
+.item {
+    height: 38px;
+    display: flex;
+    align-items: center;
+}

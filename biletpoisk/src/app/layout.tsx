@@ -1,6 +1,7 @@
 import { Header } from '@/components/Header/Header';
 import { roboto } from './fonts';
 import './globals.css';
+import { Footer } from '@/components/Footer/Footer';
 
 export const metadata = {
     title: 'Create Next App',
@@ -13,6 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body className={roboto.className}>
                 <Header />
                 {children}
+                <Footer />
             </body>
         </html>
     );
