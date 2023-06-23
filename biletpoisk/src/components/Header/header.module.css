@@ -1,0 +1,44 @@
+.container {
+    padding: 24px 32px;
+    max-width: 1920px;
+    color: #fff;
+    background-color: #333;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.titleContainer {
+    display: flex;
+    align-items: center;
+    height: 36px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.basketContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* height: ; */
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    min-height: 28px;
+    border-radius: 8px;
+    background-color: #ff5500;
+}
+
+.basketLink {
+    height: 32px;
+}
