@@ -1,0 +1,37 @@
+.container {
+    padding: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.imgContainer {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.main {
+    display: flex;
+    align-items: flex-start;
+    flex-grow: 1;
+    gap: 24px;
+}
+
+.titleContainer {
+    flex-grow: 1;
+}
+
+.title {
+    margin-bottom: 8px;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.closeBtn {
+    all: unset;
+    cursor: pointer;
+}

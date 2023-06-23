@@ -10,10 +10,10 @@
     cursor: pointer;
 }
 
-.btn .disabled {
+.disabled {
     background-color: #ffa375;
 }
 
-.btn:hover {
+.active:hover {
     background-color: #e94e00;
 }
