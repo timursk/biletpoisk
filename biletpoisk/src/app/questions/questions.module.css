@@ -1,0 +1,15 @@
+.titleContainer {
+    margin-bottom: 24px;
+    padding: 24px;
+    border-radius: 8px;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 32px;
+    background-color: #fff;
+}
+
+.accordionContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
