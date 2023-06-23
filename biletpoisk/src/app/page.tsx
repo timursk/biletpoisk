@@ -3,6 +3,7 @@ import { Accordion } from '@/components/Accordion/Accordion';
 import { CountBtn } from '@/components/CountBtn/CountBtn';
 import { FilterInput } from '@/components/FilterInput/FilterInput';
 import { FilterItem } from '@/components/FilterItem/FilterItem';
+import { Modal } from '@/components/Modal/Modal';
 import { TicketCard } from '@/components/TicketCard/TicketCard';
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
             <Accordion question={'some qiestion'} answer={'answer bla bla'} />
             <Accordion question={'some qiestion'} answer={'answer bla bla'} />
             <TicketCard />
+            <Modal />
         </div>
     );
 }

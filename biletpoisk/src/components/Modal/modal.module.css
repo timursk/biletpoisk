@@ -1,0 +1,39 @@
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.infoContainer {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.infoTitle {
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.infoQuestion {
+    line-height: 20px;
+}
+
+.infoClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.acceptContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
