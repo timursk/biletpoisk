@@ -10,7 +10,7 @@ interface Props {
 
 export const AcceptBtn: FC<Props> = ({ isAccept }) => {
     return (
-        <button className={styles.btn}>
+        <button className={`${styles.btn} ${isAccept ? styles.accept : styles.reject}`}>
             <span className={styles.title}>{isAccept ? 'Да' : 'Нет'}</span>
         </button>
     );

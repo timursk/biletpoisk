@@ -5,13 +5,22 @@
     padding: 10px 16px;
     border: none;
     border-radius: 4px;
-    background-color: #ff5500;
     color: #fff;
     cursor: pointer;
 }
 
-.btn:hover {
+.accept {
+    background-color: #ff5500;
+}
+
+.accept:hover {
     background-color: #e94e00;
+}
+
+.reject {
+    border: 1px solid #ff5500;
+    background-color: transparent;
+    color: #ff5500;
 }
 
 .title {
