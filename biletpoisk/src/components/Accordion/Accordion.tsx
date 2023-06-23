@@ -4,6 +4,7 @@ import { FC, useState } from 'react';
 import styles from './accordion.module.css';
 import Image from 'next/image';
 import arrow from '../../assets/icons/arrow.svg';
+import classNames from 'classnames';
 
 interface Props {
     question: string;
@@ -22,7 +23,8 @@ export const Accordion: FC<Props> = ({ question, answer }) => {
                     alt={'arrow'}
                     width={32}
                     height={32}
-                    className={`${styles.icon} ${isActive ? styles.rotateIcon : ''}`}
+                    // className={`${styles.icon} ${isActive ? styles.rotateIcon : ''}`}
+                    className={classNames(styles.icon, isActive ? styles.rotateIcon : '')}
                 ></Image>
             </div>
 
