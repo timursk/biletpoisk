@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    gap: 32px;
+}
+
+.userContentContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: 20px;
+    line-height: 32px;
+}
+
+.bold {
+    font-weight: 600;
+}
