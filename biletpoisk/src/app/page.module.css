@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    gap: 23px;
+}
+
+.filterContainer {
+    position: sticky;
+    align-self: flex-start;
+    flex-grow: 1;
+    top: 108px;
+    max-width: 408px;
+}
+
+.filterWrapper {
+    min-height: calc(100vh - 84px - 86px);
+}
+
+.filterContainerTitle {
+    margin-bottom: 20px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ticketsContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 16px;
+}
