@@ -15,3 +15,18 @@
 .bold {
     font-weight: 600;
 }
+
+.avatarContainer {
+    position: relative;
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    background-color: #e0e0e0;
+}
+
+.avatar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

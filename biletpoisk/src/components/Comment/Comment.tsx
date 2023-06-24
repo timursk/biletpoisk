@@ -2,12 +2,25 @@ import { FC } from 'react';
 import styles from './comment.module.css';
 import { BoxWrapper } from '../BoxWrapper/BoxWrapper';
 import Image from 'next/image';
+import avatar from '../../assets/icons/photo.svg';
 
 export const Comment: FC = () => {
     return (
         <BoxWrapper>
             <div className={styles.container}>
-                <Image src={''} alt={''} width={100} height={100} />
+                {false ? (
+                    <Image src={''} alt={''} width={100} height={100} />
+                ) : (
+                    <div className={styles.avatarContainer}>
+                        <Image
+                            className={styles.avatar}
+                            src={avatar}
+                            alt={'avatar'}
+                            width={32}
+                            height={32}
+                        />
+                    </div>
+                )}
 
                 <div>
                     <div className={styles.userContentContainer}>

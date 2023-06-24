@@ -9,7 +9,7 @@ export const FilmCard: FC = () => {
     return (
         <BoxWrapper>
             <div className={styles.container}>
-                <div>
+                <div className={styles.imageContainer}>
                     <Image src={''} alt={'poster'} width={400} height={500}></Image>
                 </div>
 

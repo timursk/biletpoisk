@@ -3,6 +3,12 @@
     gap: 32px;
 }
 
+.imageContainer {
+    flex-shrink: 0;
+    width: 400px;
+    height: 500px;
+}
+
 .titleContainer {
     display: flex;
     align-items: flex-start;
