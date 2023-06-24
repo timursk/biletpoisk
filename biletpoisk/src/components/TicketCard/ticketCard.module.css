@@ -22,15 +22,27 @@
 
 .title {
     margin-bottom: 8px;
+    font-size: 20px;
 }
 
-.counter {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.titleFilmCard {
+    margin-bottom: 24px;
+    font-size: 32px;
+    line-height: 32px;
 }
 
 .closeBtn {
     all: unset;
     cursor: pointer;
+}
+
+.filmMetaContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 20px;
+}
+
+.filmMetaTitle {
+    font-weight: 600;
 }

@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    gap: 32px;
+}
+
+.titleContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 32px;
+}
+
+.filmMetaContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+    font-size: 20px;
+}
+
+.filmMetaTitle {
+    font-weight: 600;
+}
+
+.descriptionTitle {
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px;
+}
