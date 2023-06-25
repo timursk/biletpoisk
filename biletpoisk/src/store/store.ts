@@ -3,11 +3,13 @@ import { basketReducer } from './features/basket';
 import { useDispatch } from 'react-redux';
 import { movieApi } from './services/movieApi';
 import { filtersReducer } from './features/filters';
+import { cinemasReducer } from './features/cinemas';
 
 export const store = configureStore({
     reducer: {
         basket: basketReducer,
         filters: filtersReducer,
+        cinemas: cinemasReducer,
         [movieApi.reducerPath]: movieApi.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([movieApi.middleware]),

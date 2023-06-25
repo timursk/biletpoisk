@@ -15,7 +15,7 @@ interface Props {
     posterUrl: string;
     id: string;
     genre: string;
-    handleDelete: () => void;
+    handleDelete?: () => void;
 }
 
 export const TicketCard: FC<Props> = ({ title, posterUrl, id, genre, handleDelete }) => {

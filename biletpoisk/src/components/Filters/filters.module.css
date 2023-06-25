@@ -3,6 +3,7 @@
     align-self: flex-start;
     flex-grow: 1;
     top: 108px;
+    min-width: 408px;
     max-width: 408px;
 }
 
