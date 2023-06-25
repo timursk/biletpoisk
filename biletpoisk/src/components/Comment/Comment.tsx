@@ -3,12 +3,21 @@ import styles from './comment.module.css';
 import { BoxWrapper } from '../BoxWrapper/BoxWrapper';
 import Image from 'next/image';
 import avatar from '../../assets/icons/photo.svg';
+import { Review } from '@/utils/types';
 
-export const Comment: FC = () => {
+interface Props {
+    review: Review;
+}
+
+const HAS_AVATAR = false; // на бэке нет аватарок
+
+export const Comment: FC<Props> = ({ review }) => {
+    const { id, name, text, rating } = review;
+
     return (
         <BoxWrapper>
             <div className={styles.container}>
-                {false ? (
+                {HAS_AVATAR ? (
                     <Image src={''} alt={''} width={100} height={100} />
                 ) : (
                     <div className={styles.avatarContainer}>
@@ -22,24 +31,15 @@ export const Comment: FC = () => {
                     </div>
                 )}
 
-                <div>
+                <div className={styles.contentContainer}>
                     <div className={styles.userContentContainer}>
-                        <h4 className={styles.bold}>Роман</h4>
+                        <h4 className={styles.bold}>{name}</h4>
                         <span>
-                            Оценка: <span className={styles.bold}>8</span>
+                            Оценка: <span className={styles.bold}>{rating}</span>
                         </span>
                     </div>
 
-                    <p>
-                        По счастью мне довелось посмотреть фильм раньше, чем прочесть книгу. Это
-                        было около четырех лет назад, но тот момент я вспоминаю и по сей день. До
-                        него я не был фанатом Джона Толкина, как впрочем, и всего фентези в целом,
-                        однако стоило мне посмотреть первые десять минут фильма и оставшиеся
-                        пролетели на одном дыхании. Я словно погрузился в необычайный мир, где добро
-                        борется со злом, где зеленые рощи перемежаются с поросшими мхом статуями и
-                        древними развалинами, в мир, где пробираясь лесною тропой можно встретить
-                        остроухих неувядающих эльфов или мерзких орков – кому как повезет...
-                    </p>
+                    <p>{text}</p>
                 </div>
             </div>
         </BoxWrapper>

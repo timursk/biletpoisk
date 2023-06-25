@@ -3,6 +3,10 @@
     gap: 32px;
 }
 
+.contentContainer {
+    width: 100%;
+}
+
 .userContentContainer {
     display: flex;
     align-items: center;

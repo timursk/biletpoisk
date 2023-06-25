@@ -7,6 +7,7 @@ import { CountBtn } from '../CountBtn/CountBtn';
 import close from '../../assets/icons/close.svg';
 import { BoxWrapper } from '../BoxWrapper/BoxWrapper';
 import { Counter } from '../Counter/Counter';
+import Link from 'next/link';
 
 interface Props {
     title: string;
@@ -25,7 +26,9 @@ export const TicketCard: FC<Props> = ({ title, posterUrl, id, genre }) => {
 
                 <div className={styles.main}>
                     <div className={styles.titleContainer}>
-                        <h3 className={styles.title}>{title}</h3>
+                        <Link href={`/film/${id}`}>
+                            <h3 className={styles.title}>{title}</h3>
+                        </Link>
 
                         <span>{genre}</span>
                     </div>
