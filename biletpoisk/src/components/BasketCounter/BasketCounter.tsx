@@ -1,11 +1,9 @@
 import { FC } from 'react';
 import styles from './basketCounter.module.css';
-import { useSelector } from 'react-redux';
-import { selectBasketModule } from '@/store/features/basket/selectors';
+import { useGetBasketTotalAmount } from '@/hooks/useGetBasketTotalAmount';
 
 export const BasketCounter: FC = () => {
-    const basket = useSelector(selectBasketModule);
-    const generalCount = Object.values(basket).reduce((prev, curr) => prev + curr, 0);
+    const totalAmount = useGetBasketTotalAmount();
 
-    return <div className={styles.counter}>{generalCount}</div>;
+    return <div className={styles.counter}>{totalAmount}</div>;
 };

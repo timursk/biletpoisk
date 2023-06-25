@@ -9,6 +9,7 @@ import { createPortal } from 'react-dom';
 import { ModalsContainer } from '@/components/PortalContainers/ModalsContainer';
 import { useSelector } from 'react-redux';
 import { selectProductAmount } from '@/store/features/basket/selectors';
+import { TotalBasketCounter } from '@/components/TotalBasketCounter/TotalBasketCounter';
 
 export default function Basket() {
     const [isModalOpen, setIsModalOpen] = useState(true);
@@ -42,12 +43,7 @@ export default function Basket() {
                 />
             </div>
 
-            <BoxWrapper>
-                <div className={styles.totalContainer}>
-                    <p>Итого билетов:</p>
-                    <p>7</p>
-                </div>
-            </BoxWrapper>
+            <TotalBasketCounter />
 
             {isModalOpen &&
                 createPortal(
