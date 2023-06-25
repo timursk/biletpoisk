@@ -2,7 +2,7 @@
 
 import { FC, useContext } from 'react';
 import styles from './filterInput.module.css';
-import { FiltersContext } from './Filters';
+import { FiltersContext } from './FiltersWrapper';
 
 interface Props {
     placeholder: string;

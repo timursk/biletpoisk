@@ -28,3 +28,8 @@ export interface Review {
     text: string;
     rating: number;
 }
+
+export interface CurrentMovie {
+    movie: Movie;
+    reviews: Review[];
+}

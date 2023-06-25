@@ -7,7 +7,7 @@ import { FilterSelectList } from './FilterSelectList';
 import { createPortal } from 'react-dom';
 import arrowSelect from '../../assets/icons/arrowSelect.svg';
 import classNames from 'classnames';
-import { FiltersContext } from './Filters';
+import { FiltersContext } from './FiltersWrapper';
 import { setAbsoluteCSSCoordinates } from '@/utils/helpers';
 
 interface Props {

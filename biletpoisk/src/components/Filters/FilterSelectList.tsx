@@ -2,7 +2,7 @@ import { CSSProperties, FC, MutableRefObject, useContext, useEffect, useRef } fr
 import styles from './filterSelectList.module.css';
 import classNames from 'classnames';
 import { sfpro } from '@/app/fonts';
-import { FiltersContext } from './Filters';
+import { FiltersContext } from './FiltersWrapper';
 
 interface Props {
     listItems: string[];

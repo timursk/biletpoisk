@@ -33,6 +33,13 @@ export const defaultFiltersContextValue = {
     switchFilter: (id: number) => {},
 };
 
+export const FILTER_GENRES = {
+    horror: 'ужасы',
+    comedy: 'ĸомедия',
+    fantasy: 'фэнтези',
+    action: 'боевиĸ',
+};
+
 export const FILTER_SELECTS = [
     {
         title: 'Название',
@@ -42,9 +49,11 @@ export const FILTER_SELECTS = [
     {
         title: 'Жанр',
         placeholder: 'Выберите жанр',
+        selectItems: [Object.values(FILTER_GENRES)],
     },
     {
         title: 'Кинотеатр',
         placeholder: 'Выберите кинотеатр',
+        selectItems: [],
     },
 ];
