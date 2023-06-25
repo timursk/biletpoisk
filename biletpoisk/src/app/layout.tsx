@@ -3,6 +3,7 @@ import { roboto } from './fonts';
 import './globals.css';
 import styles from './layout.module.css';
 import { Footer } from '@/components/Footer/Footer';
+import { ModalsContainer } from '@/components/ModalsContainer/ModalsContainer';
 
 export const metadata = {
     title: 'Create Next App',
@@ -16,6 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Header />
                 <main className={styles.main}>{children}</main>
                 <Footer />
+                <ModalsContainer />
             </body>
         </html>
     );
