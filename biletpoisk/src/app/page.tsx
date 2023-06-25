@@ -1,11 +1,11 @@
 import { BoxWrapper } from '@/components/BoxWrapper/BoxWrapper';
 import { FilterContainer } from '@/components/FilterContainer/FilterContainer';
-import { TicketCard } from '@/components/TicketCard/TicketCard';
 import styles from './page.module.css';
 import { FilterInput } from '@/components/Filters/FilterInput';
 import { FilterSelect } from '@/components/Filters/FilterSelect';
 import { FILTER_SELECTS } from '@/utils/constants';
 import { Filters } from '@/components/Filters/Filters';
+import { Tickets } from '@/components/Tickets/Tickets';
 
 export default function Home() {
     return (
@@ -34,12 +34,7 @@ export default function Home() {
                 </BoxWrapper>
             </div>
 
-            <div className={styles.ticketsContainer}>
-                <TicketCard />
-                <TicketCard />
-                <TicketCard />
-                <TicketCard />
-            </div>
+            <Tickets />
         </div>
     );
 }
