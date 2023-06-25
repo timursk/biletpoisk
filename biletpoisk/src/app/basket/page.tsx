@@ -6,7 +6,7 @@ import styles from './basket.module.css';
 import { Modal } from '@/components/Modal/Modal';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ModalsContainer } from '@/components/ModalsContainer/ModalsContainer';
+import { ModalsContainer } from '@/components/PortalContainers/ModalsContainer';
 
 export default function Basket() {
     const [isModalOpen, setIsModalOpen] = useState(true);

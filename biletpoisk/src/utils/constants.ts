@@ -27,3 +27,24 @@ export const defaultQuestionsContextValue = {
     activeGroup: -1,
     switchGroup: (id: number) => {},
 };
+
+export const defaultFiltersContextValue = {
+    activeFilter: -1,
+    switchFilter: (id: number) => {},
+};
+
+export const FILTER_SELECTS = [
+    {
+        title: 'Название',
+        placeholder: 'Введите название',
+        isInput: true,
+    },
+    {
+        title: 'Жанр',
+        placeholder: 'Выберите жанр',
+    },
+    {
+        title: 'Кинотеатр',
+        placeholder: 'Выберите кинотеатр',
+    },
+];
