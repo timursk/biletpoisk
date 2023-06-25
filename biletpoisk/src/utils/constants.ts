@@ -34,26 +34,27 @@ export const defaultFiltersContextValue = {
 };
 
 export const FILTER_GENRES = {
+    none: 'Не выбран',
     horror: 'ужасы',
     comedy: 'ĸомедия',
     fantasy: 'фэнтези',
     action: 'боевиĸ',
 };
 
-export const FILTER_SELECTS = [
-    {
+export const FILTER_ITEMS = {
+    title: {
         title: 'Название',
         placeholder: 'Введите название',
-        isInput: true,
+        id: 0,
     },
-    {
+    genre: {
         title: 'Жанр',
         placeholder: 'Выберите жанр',
-        selectItems: [Object.values(FILTER_GENRES)],
+        id: 1,
     },
-    {
+    cinemas: {
         title: 'Кинотеатр',
         placeholder: 'Выберите кинотеатр',
-        selectItems: [],
+        id: 2,
     },
-];
+};

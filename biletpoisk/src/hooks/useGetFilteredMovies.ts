@@ -16,7 +16,10 @@ export const useGetFilteredMovies = (data: Data) => {
 
         const newFilteredData = data.filter((currentMovie) => {
             const isIncludes = currentMovie.title.includes(filters.title || '');
-            const isCurrentGenre = filters.genre ? currentMovie.genre === filters.genre : true;
+            const isCurrentGenre =
+                filters.genre && filters.genre !== 'none'
+                    ? currentMovie.genre === filters.genre
+                    : true;
 
             return isIncludes && isCurrentGenre;
         });

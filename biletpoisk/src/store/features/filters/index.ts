@@ -4,6 +4,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 interface InitialState {
     title?: string;
     genre?: string;
+    cinemaId?: string;
     filteredMovies?: Movie[];
 }
 
@@ -31,6 +32,16 @@ const filtersSlice = createSlice({
             }
 
             state.genre = payload;
+        },
+
+        setCinemaId: (state, action: PayloadAction<string>) => {
+            const { payload } = action;
+
+            if (!payload) {
+                delete state.cinemaId;
+            }
+
+            state.cinemaId = payload;
         },
 
         setFilteredMovies: (state, action: PayloadAction<Movie[]>) => {

@@ -1,6 +1,14 @@
 'use client';
 
-import { CSSProperties, FC, MutableRefObject, useContext, useEffect, useRef } from 'react';
+import {
+    CSSProperties,
+    FC,
+    MutableRefObject,
+    ReactNode,
+    useContext,
+    useEffect,
+    useRef,
+} from 'react';
 import styles from './filterSelect.module.css';
 import Image from 'next/image';
 import { FilterSelectList } from './FilterSelectList';
@@ -13,12 +21,13 @@ import { setAbsoluteCSSCoordinates } from '@/utils/helpers';
 interface Props {
     placeholder: string;
     id: number;
+    selectListFn: (style: CSSProperties) => ReactNode;
 }
 
 export type BtnElementRef = MutableRefObject<HTMLButtonElement | null>;
 export type AbsoluteStylesRef = MutableRefObject<CSSProperties>;
 
-export const FilterSelect: FC<Props> = ({ placeholder, id }) => {
+export const FilterSelect: FC<Props> = ({ placeholder, id, selectListFn }) => {
     const { activeFilter, switchFilter } = useContext(FiltersContext);
     const isActive = activeFilter === id;
     const btnElementRef: BtnElementRef = useRef(null);
@@ -62,10 +71,7 @@ export const FilterSelect: FC<Props> = ({ placeholder, id }) => {
 
             {isActive &&
                 createPortal(
-                    <FilterSelectList
-                        listItems={['test', 'item', 'item']}
-                        style={absoluteStylesRef.current}
-                    />,
+                    selectListFn(absoluteStylesRef.current),
                     document.body.querySelector('.dropdown-container') || document.body
                 )}
         </>
