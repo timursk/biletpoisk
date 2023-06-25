@@ -2,7 +2,7 @@
 
 import { QUESTIONS_ANSWERS } from '@/utils/constants';
 import { FC } from 'react';
-import { QuestionsAccordion } from '../Accordion/Accordion';
+import { QuestionsAccordion } from '../QuestionsAccordion/QuestionsAccordion';
 
 interface Props {
     data: typeof QUESTIONS_ANSWERS;
