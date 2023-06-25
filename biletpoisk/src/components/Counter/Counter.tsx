@@ -1,31 +1,41 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import styles from './counter.module.css';
 import { CountBtn } from '../CountBtn/CountBtn';
+import { useSelector } from 'react-redux';
+import { selectProductAmount } from '@/store/features/basket/selectors';
+import { RootState, useAppDispatch } from '@/store/store';
+import { basketActions } from '@/store/features/basket';
 
-export const Counter: FC = () => {
-    const [count, setCount] = useState(0);
-    const MAX_COUNT = 30;
+interface Props {
+    id: string;
+}
+
+const MAX_COUNT = 30;
+
+export const Counter: FC<Props> = ({ id }) => {
+    const productAmount = useSelector((state: RootState) => selectProductAmount(state, id));
+    const dispatch = useAppDispatch();
 
     return (
         <div className={styles.counter}>
             <CountBtn
                 isPlus={false}
                 callback={() => {
-                    setCount((count) => count - 1);
+                    dispatch(basketActions.decrement(id));
                 }}
-                isDisabled={count === 0}
+                isDisabled={productAmount === 0}
             />
 
-            <span>{count}</span>
+            <span>{productAmount}</span>
 
             <CountBtn
                 isPlus={true}
                 callback={() => {
-                    setCount((count) => count + 1);
+                    dispatch(basketActions.increment(id));
                 }}
-                isDisabled={count === MAX_COUNT}
+                isDisabled={productAmount === MAX_COUNT}
             />
         </div>
     );

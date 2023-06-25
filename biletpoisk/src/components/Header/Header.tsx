@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import basket from '../../assets/icons/basket.svg';
+import { BasketCounter } from '../BasketCounter/BasketCounter';
 
 export const Header: FC = () => {
     const pathname = usePathname();
@@ -24,9 +25,11 @@ export const Header: FC = () => {
                 </div>
 
                 <div className={styles.basketContainer}>
-                    {pathname === '/basket' ? <div className={styles.counter}>7</div> : null}
                     {pathname === '/basket' ? (
-                        <Image src={basket} alt={'basket'} width={32} height={32}></Image>
+                        <>
+                            <BasketCounter />
+                            <Image src={basket} alt={'basket'} width={32} height={32}></Image>
+                        </>
                     ) : (
                         <Link href={'/basket'} className={styles.basketLink}>
                             <Image src={basket} alt={'basket'} width={32} height={32}></Image>

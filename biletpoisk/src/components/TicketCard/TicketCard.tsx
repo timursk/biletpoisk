@@ -8,22 +8,29 @@ import close from '../../assets/icons/close.svg';
 import { BoxWrapper } from '../BoxWrapper/BoxWrapper';
 import { Counter } from '../Counter/Counter';
 
-export const TicketCard: FC = () => {
+interface Props {
+    title: string;
+    posterUrl: string;
+    id: string;
+    genre: string;
+}
+
+export const TicketCard: FC<Props> = ({ title, posterUrl, id, genre }) => {
     return (
         <BoxWrapper>
             <div className={styles.container}>
                 <div className={styles.imgContainer}>
-                    <Image src={''} alt={''} width={100} height={120} />
+                    <Image src={posterUrl} alt={'poster'} width={100} height={120} />
                 </div>
 
                 <div className={styles.main}>
                     <div className={styles.titleContainer}>
-                        <h3 className={styles.title}>Властелин колец: Братство кольца</h3>
+                        <h3 className={styles.title}>{title}</h3>
 
-                        <span>Фэнтези</span>
+                        <span>{genre}</span>
                     </div>
 
-                    <Counter />
+                    <Counter id={id} />
 
                     {true && (
                         <button className={styles.closeBtn}>
