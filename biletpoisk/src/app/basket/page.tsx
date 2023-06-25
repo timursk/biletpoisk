@@ -10,47 +10,77 @@ import { ModalsContainer } from '@/components/PortalContainers/ModalsContainer';
 import { useSelector } from 'react-redux';
 import { selectProductAmount } from '@/store/features/basket/selectors';
 import { TotalBasketCounter } from '@/components/TotalBasketCounter/TotalBasketCounter';
+import { useGetAllBasketMovies } from '@/hooks/useGetAllBasketMovies';
+import { useAppDispatch } from '@/store/store';
+import { basketActions } from '@/store/features/basket';
 
 export default function Basket() {
-    const [isModalOpen, setIsModalOpen] = useState(true);
+    const basketMovies = useGetAllBasketMovies();
+    const dispatch = useAppDispatch();
+    const [modalMovieId, setModalMovieId] = useState<string>('');
 
     return (
         <div className={styles.container}>
             <div className={styles.ticketsContainer}>
+                {Boolean(basketMovies) && basketMovies.length > 0
+                    ? basketMovies.map(({ id, title, posterUrl, genre }) => {
+                          return (
+                              <TicketCard
+                                  key={id}
+                                  title={title}
+                                  posterUrl={posterUrl}
+                                  id={id}
+                                  genre={genre}
+                                  handleDelete={() => setModalMovieId(id)}
+                              />
+                          );
+                      })
+                    : null}
                 <TicketCard
                     title={'Властелин колец: Братство кольца'}
                     posterUrl={'https://i.postimg.cc/pdCLNMqX/1.webp'}
                     id={'444'}
                     genre={'fantasy'}
+                    handleDelete={() => setModalMovieId('id')}
                 />
                 <TicketCard
                     title={'Властелин колец: Братство кольца'}
                     posterUrl={'https://i.postimg.cc/pdCLNMqX/1.webp'}
                     id={'445'}
                     genre={'genre'}
+                    handleDelete={() => setModalMovieId('id')}
                 />
                 <TicketCard
                     title={'Властелин колец: Братство кольца'}
                     posterUrl={'https://i.postimg.cc/pdCLNMqX/1.webp'}
                     id={'446'}
                     genre={'asd'}
+                    handleDelete={() => setModalMovieId('id')}
                 />
                 <TicketCard
                     title={'Властелин колец: Братство кольца'}
                     posterUrl={'https://i.postimg.cc/pdCLNMqX/1.webp'}
                     id={'448'}
                     genre={'blabla'}
+                    handleDelete={() => setModalMovieId('id')}
                 />
             </div>
 
             <TotalBasketCounter />
 
-            {isModalOpen &&
+            {modalMovieId &&
                 createPortal(
-                    <Modal />,
+                    <Modal
+                        onAccept={() => {
+                            dispatch(basketActions.remove(modalMovieId));
+                            setModalMovieId('');
+                        }}
+                        onDecline={() => {
+                            setModalMovieId('');
+                        }}
+                    />,
                     document.body.querySelector('.modals-container') || document.body
                 )}
-            {/* {isModalOpen && createPortal(<Modal />, document.body)} */}
         </div>
     );
 }

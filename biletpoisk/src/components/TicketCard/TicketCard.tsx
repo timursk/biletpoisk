@@ -8,15 +8,17 @@ import close from '../../assets/icons/close.svg';
 import { BoxWrapper } from '../BoxWrapper/BoxWrapper';
 import { Counter } from '../Counter/Counter';
 import Link from 'next/link';
+import { FILTER_GENRES } from '@/utils/constants';
 
 interface Props {
     title: string;
     posterUrl: string;
     id: string;
     genre: string;
+    handleDelete: () => void;
 }
 
-export const TicketCard: FC<Props> = ({ title, posterUrl, id, genre }) => {
+export const TicketCard: FC<Props> = ({ title, posterUrl, id, genre, handleDelete }) => {
     return (
         <BoxWrapper>
             <div className={styles.container}>
@@ -30,13 +32,13 @@ export const TicketCard: FC<Props> = ({ title, posterUrl, id, genre }) => {
                             <h3 className={styles.title}>{title}</h3>
                         </Link>
 
-                        <span>{genre}</span>
+                        <span>{FILTER_GENRES[genre as keyof typeof FILTER_GENRES]}</span>
                     </div>
 
                     <Counter id={id} />
 
                     {true && (
-                        <button className={styles.closeBtn}>
+                        <button className={styles.closeBtn} onClick={handleDelete}>
                             <Image src={close} alt={'delete'} width={20} height={20} />
                         </button>
                     )}

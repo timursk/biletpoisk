@@ -27,6 +27,10 @@ const basketSlice = createSlice({
 
             state[payload] = count - 1;
         },
+        remove: (state, action: PayloadAction<string>) => {
+            const { payload } = action;
+            delete state[payload];
+        },
         // reset: () => initialState,
     },
 });
