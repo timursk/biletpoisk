@@ -1,7 +1,5 @@
-'use client';
-
 import classNames from 'classnames';
-import styles from './filter.module.css';
+import styles from './filterContainer.module.css';
 import { FC, ReactNode } from 'react';
 import { sfpro } from '@/app/fonts';
 

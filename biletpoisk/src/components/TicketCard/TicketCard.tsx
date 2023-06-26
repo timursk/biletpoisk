@@ -1,10 +1,9 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import styles from './ticketCard.module.css';
 import Image from 'next/image';
-import { CountBtn } from '../CountBtn/CountBtn';
-import close from '../../assets/icons/close.svg';
+import close from '@/icons/close.svg';
 import { BoxWrapper } from '../BoxWrapper/BoxWrapper';
 import { Counter } from '../Counter/Counter';
 import Link from 'next/link';
@@ -35,7 +34,9 @@ export const TicketCard: FC<Props> = ({ title, posterUrl, id, genre, handleDelet
                             <h3 className={styles.title}>{title}</h3>
                         </Link>
 
-                        <span>{FILTER_GENRES[genre as keyof typeof FILTER_GENRES]}</span>
+                        <span className={styles.genre}>
+                            {FILTER_GENRES[genre as keyof typeof FILTER_GENRES]}
+                        </span>
                     </div>
 
                     <Counter id={id} />

@@ -18,7 +18,7 @@ export const Questions: FC<Props> = ({ data }) => {
             {data.map(({ question, answer }, idx) => {
                 return (
                     <QuestionsAccordion.Group key={idx} question={question} id={idx}>
-                        <QuestionsAccordion.Item answer={answer} />
+                        <QuestionsAccordion.Item answer={answer} id={idx} />
                     </QuestionsAccordion.Group>
                 );
             })}

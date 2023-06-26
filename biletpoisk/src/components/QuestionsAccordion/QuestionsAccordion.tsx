@@ -3,7 +3,7 @@
 import { FC, createContext, useCallback, useContext, useState } from 'react';
 import styles from './accordion.module.css';
 import Image from 'next/image';
-import arrow from '../../assets/icons/arrow.svg';
+import arrow from '@/icons/arrow.svg';
 import classNames from 'classnames';
 import { BoxWrapper } from '../BoxWrapper/BoxWrapper';
 import { defaultQuestionsContextValue } from '@/utils/constants';
@@ -20,13 +20,21 @@ interface GroupProps {
 }
 interface ItemProps {
     answer: string;
+    id: number;
+}
+
+interface IconProps {
+    id: number;
 }
 
 type GroupComponent = FC<GroupProps>;
 type ItemComponent = FC<ItemProps>;
+type IconComponent = FC<IconProps>;
+
 type QuestionsAccordionComponent = FC<QuestionsProps> & {
     Group: GroupComponent;
     Item: ItemComponent;
+    Icon: IconComponent;
 };
 
 export const QuestionsAccordion: QuestionsAccordionComponent = ({ children }) => {
@@ -44,8 +52,7 @@ export const QuestionsAccordion: QuestionsAccordionComponent = ({ children }) =>
 };
 
 QuestionsAccordion.Group = function QuestionsGroup({ children, question, id }) {
-    const { activeGroup, switchGroup } = useContext(QuestionsContext);
-    const isActive = activeGroup === id;
+    const { switchGroup } = useContext(QuestionsContext);
 
     return (
         <BoxWrapper>
@@ -53,21 +60,37 @@ QuestionsAccordion.Group = function QuestionsGroup({ children, question, id }) {
                 <div className={styles.questionContainer}>
                     <span className={styles.question}>{question}</span>
 
-                    <Image
-                        src={arrow}
-                        alt={'arrow'}
-                        width={32}
-                        height={32}
-                        className={classNames(styles.icon, isActive ? styles.rotateIcon : '')}
-                    ></Image>
+                    <QuestionsAccordion.Icon id={id} />
                 </div>
 
-                {isActive && <div className={styles.info}>{children}</div>}
+                <div className={styles.info}>{children}</div>
             </button>
         </BoxWrapper>
     );
 };
 
-QuestionsAccordion.Item = function QuestionsItem({ answer }) {
+QuestionsAccordion.Item = function QuestionsItem({ answer, id }) {
+    const { activeGroup } = useContext(QuestionsContext);
+    const isActive = activeGroup === id;
+
+    if (!isActive) {
+        return null;
+    }
+
     return <span>{answer}</span>;
+};
+
+QuestionsAccordion.Icon = function QuestionsIcon({ id }) {
+    const { activeGroup } = useContext(QuestionsContext);
+    const isActive = activeGroup === id;
+
+    return (
+        <Image
+            src={arrow}
+            alt={'arrow'}
+            width={32}
+            height={32}
+            className={classNames(styles.icon, isActive ? styles.rotateIcon : '')}
+        ></Image>
+    );
 };

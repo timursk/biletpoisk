@@ -9,6 +9,8 @@ interface InitialState {
     filteredMovies?: Movie[];
 }
 
+export type Filters = typeof initialState;
+
 const initialState: InitialState = {};
 
 const filtersSlice = createSlice({

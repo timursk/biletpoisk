@@ -1,7 +1,7 @@
 'use client';
 
-import plus from '../../assets/icons/plus.svg';
-import minus from '../../assets/icons/minus.svg';
+import plus from '@/icons/plus.svg';
+import minus from '@/icons/minus.svg';
 import Image from 'next/image';
 import styles from './countBtn.module.css';
 import { FC } from 'react';

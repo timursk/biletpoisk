@@ -1,5 +1,3 @@
-import { BoxWrapper } from '@/components/BoxWrapper/BoxWrapper';
-import { FilterContainer } from '@/components/FilterContainer/FilterContainer';
 import styles from './page.module.css';
 import { Tickets } from '@/components/Tickets/Tickets';
 import { Filters } from '@/components/Filters/Filters';

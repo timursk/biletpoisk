@@ -11,7 +11,7 @@ import {
 import { FiltersContext } from './FiltersWrapper';
 import { useHandleOutsideClick } from '@/hooks/useHandleOutsideClick';
 import { sfpro } from '@/app/fonts';
-import styles from './filterGenreList.module.css';
+import styles from './filterList.module.css';
 
 interface FilterListProps {
     style: CSSProperties;

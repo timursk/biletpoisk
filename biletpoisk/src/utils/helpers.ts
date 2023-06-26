@@ -1,5 +1,10 @@
-import { BtnElementRef, AbsoluteStylesRef } from '@/components/Filters/FilterSelect';
+import {
+    BtnElementRef,
+    AbsoluteStylesRef,
+} from '@/components/FilterComponents/common/FilterSelect';
 import { CSSProperties } from 'react';
+import { Cinema, Movie } from './types';
+import { Filters } from '@/store/features/filters';
 
 export function setAbsoluteCSSCoordinates(
     btnElementRef: BtnElementRef,
@@ -29,4 +34,53 @@ export const debounce = (fn: Function, ms = 200) => {
         clearTimeout(timeoutId);
         timeoutId = setTimeout(() => fn.apply(this, args), ms);
     };
+};
+
+export const getFilmsByBasket = (movies: Movie[], basket: Record<string, number>) => {
+    const result: Movie[] = [];
+
+    if (movies?.length === 0 || !basket) {
+        return result;
+    }
+
+    const movieIds = Object.keys(basket);
+
+    for (let movieId of movieIds) {
+        const movie = movies.find((currentMovie) => currentMovie.id === movieId);
+
+        if (movie) {
+            result.push(movie);
+        }
+    }
+
+    return result;
+};
+
+export const filterMovies = (
+    movies: Movie[],
+    filters: Filters,
+    cinemas: Record<string, Cinema>
+) => {
+    let result: Movie[] = [];
+
+    if (movies?.length === 0) {
+        return result;
+    }
+
+    result = movies.filter((currentMovie) => {
+        const isIncludes = currentMovie.title
+            .toLowerCase()
+            .includes(filters.title?.toLowerCase() || '');
+
+        const isCurrentGenre =
+            filters.genre && filters.genre !== 'none' ? currentMovie.genre === filters.genre : true;
+
+        const isInCinema = filters.cinemaId
+            ? cinemas[filters.cinemaId].movieIds.includes(currentMovie.id)
+            : true;
+
+        return isIncludes && isCurrentGenre && isInCinema;
+    });
+
+    return result;
 };

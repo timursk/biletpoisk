@@ -39,6 +39,8 @@ export default function Basket() {
             {modalMovieId &&
                 createPortal(
                     <Modal
+                        title="Удаление билета"
+                        question="Вы уверены, что хотите удалить билет?"
                         onAccept={() => {
                             dispatch(basketActions.remove(modalMovieId));
                             setModalMovieId('');

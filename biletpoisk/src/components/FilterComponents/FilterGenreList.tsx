@@ -1,10 +1,10 @@
 import { CSSProperties, FC, useContext } from 'react';
-import { FiltersContext } from './FiltersWrapper';
+import { FiltersContext } from './common/FiltersWrapper';
 import { useAppDispatch } from '@/store/store';
 import { FILTER_GENRES } from '@/utils/constants';
-import { FilterSelectListItem } from './FilterSelectListItem';
+import { FilterSelectListItem } from './common/FilterSelectListItem';
 import { filtersActions } from '@/store/features/filters';
-import { FilterList } from './FilterList';
+import { FilterList } from './common/FilterList';
 
 interface Props {
     style: CSSProperties;

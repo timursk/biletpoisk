@@ -1,11 +1,11 @@
 'use client';
 
 import { FC } from 'react';
-import { FilterSelect } from './FilterSelect';
 import { useSelector } from 'react-redux';
 import { selectGenre } from '@/store/features/filters/selectors';
 import { FILTER_GENRES, FILTER_ITEMS } from '@/utils/constants';
 import { FilterGenreList } from './FilterGenreList';
+import { FilterSelect } from './common/FilterSelect';
 
 export const FilterGenre: FC = () => {
     const genre = useSelector(selectGenre);

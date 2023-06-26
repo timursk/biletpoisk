@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styles from './comment.module.css';
 import { BoxWrapper } from '../BoxWrapper/BoxWrapper';
 import Image from 'next/image';
-import avatar from '../../assets/icons/photo.svg';
+import avatar from '@/icons/photo.svg';
 import { Review } from '@/utils/types';
 
 interface Props {

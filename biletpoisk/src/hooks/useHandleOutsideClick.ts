@@ -1,4 +1,4 @@
-import { ContainerElement } from '@/components/Filters/FilterList';
+import { ContainerElement } from '@/components/FilterComponents/common/FilterList';
 import { useEffect } from 'react';
 
 interface Props {

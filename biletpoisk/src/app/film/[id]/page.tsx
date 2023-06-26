@@ -4,6 +4,7 @@ import { useGetMovieQuery } from '@/store/services/movieApi';
 import styles from './page.module.css';
 import { FilmCard } from '@/components/FilmCard/FilmCard';
 import { Comment } from '@/components/Comment/Comment';
+import { Loader } from '@/components/Loader/Loader';
 
 interface NextParams {
     id: string;
@@ -17,9 +18,9 @@ export default function FilmPage({ params }: Params) {
     const { data, isLoading, error } = useGetMovieQuery(params.id);
 
     if (isLoading) {
-        return <span>Загрузка...</span>;
+        return <Loader />;
     }
-    if (!data || error) {
+    if (!data || !data.movie || error) {
         return <span>Такого фильма нет! Возможно Вы ввели неверную ссылку.</span>;
     }
 
@@ -27,9 +28,11 @@ export default function FilmPage({ params }: Params) {
         <div className={styles.container}>
             <FilmCard movie={data.movie} />
 
-            {data.reviews.map((review) => {
-                return <Comment key={review.id} review={review} />;
-            })}
+            {Boolean(data.reviews?.length > 0)
+                ? data.reviews.map((review) => {
+                      return <Comment key={review.id} review={review} />;
+                  })
+                : null}
         </div>
     );
 }

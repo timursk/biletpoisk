@@ -5,7 +5,7 @@ import styles from './header.module.css';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
-import basket from '../../assets/icons/basket.svg';
+import basket from '@/icons/basket.svg';
 import { BasketCounter } from '../BasketCounter/BasketCounter';
 
 export const Header: FC = () => {

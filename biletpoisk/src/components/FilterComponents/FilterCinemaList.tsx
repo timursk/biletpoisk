@@ -1,11 +1,11 @@
 import { CSSProperties, FC, useContext } from 'react';
-import { FiltersContext } from './FiltersWrapper';
+import { FiltersContext } from './common/FiltersWrapper';
 import { useAppDispatch } from '@/store/store';
-import { FilterList } from './FilterList';
+import { FilterList } from './common/FilterList';
 import { useSelector } from 'react-redux';
 import { selectCinemasModule } from '@/store/features/cinemas/selectors';
 import { filtersActions } from '@/store/features/filters';
-import { FilterSelectListItem } from './FilterSelectListItem';
+import { FilterSelectListItem } from './common/FilterSelectListItem';
 
 interface Props {
     style: CSSProperties;

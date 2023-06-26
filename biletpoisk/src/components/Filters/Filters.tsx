@@ -4,11 +4,11 @@ import { FC } from 'react';
 import styles from './filters.module.css';
 import { BoxWrapper } from '../BoxWrapper/BoxWrapper';
 import { FILTER_ITEMS } from '@/utils/constants';
-import { FilterContainer } from '../FilterContainer/FilterContainer';
-import { FilterInput } from './FilterInput';
-import { FiltersWrapper } from './FiltersWrapper';
-import { FilterGenre } from './FilterGenre';
-import { FilterCinema } from './FilterCinema';
+import { FilterContainer } from '../FilterComponents/common/FilterContainer';
+import { FilterInput } from '../FilterComponents/common/FilterInput';
+import { FiltersWrapper } from '../FilterComponents/common/FiltersWrapper';
+import { FilterGenre } from '../FilterComponents/FilterGenre';
+import { FilterCinema } from '../FilterComponents/FilterCinema';
 
 export const Filters: FC = () => {
     return (
