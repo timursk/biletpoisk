@@ -8,7 +8,8 @@ import classNames from 'classnames';
 import { BoxWrapper } from '../BoxWrapper/BoxWrapper';
 import { defaultQuestionsContextValue } from '@/utils/constants';
 
-const QuestionsContext = createContext(defaultQuestionsContextValue);
+const QuestionsContext = createContext(defaultQuestionsContextValue.activeGroup);
+const QuestionsSwitcherContext = createContext(defaultQuestionsContextValue.switchGroup);
 
 interface QuestionsProps {
     children: React.ReactNode;
@@ -45,14 +46,16 @@ export const QuestionsAccordion: QuestionsAccordionComponent = ({ children }) =>
     }, []);
 
     return (
-        <QuestionsContext.Provider value={{ activeGroup, switchGroup }}>
-            {children}
+        <QuestionsContext.Provider value={activeGroup}>
+            <QuestionsSwitcherContext.Provider value={switchGroup}>
+                {children}
+            </QuestionsSwitcherContext.Provider>
         </QuestionsContext.Provider>
     );
 };
 
 QuestionsAccordion.Group = function QuestionsGroup({ children, question, id }) {
-    const { switchGroup } = useContext(QuestionsContext);
+    const switchGroup = useContext(QuestionsSwitcherContext);
 
     return (
         <BoxWrapper>
@@ -70,7 +73,7 @@ QuestionsAccordion.Group = function QuestionsGroup({ children, question, id }) {
 };
 
 QuestionsAccordion.Item = function QuestionsItem({ answer, id }) {
-    const { activeGroup } = useContext(QuestionsContext);
+    const activeGroup = useContext(QuestionsContext);
     const isActive = activeGroup === id;
 
     if (!isActive) {
@@ -81,7 +84,7 @@ QuestionsAccordion.Item = function QuestionsItem({ answer, id }) {
 };
 
 QuestionsAccordion.Icon = function QuestionsIcon({ id }) {
-    const { activeGroup } = useContext(QuestionsContext);
+    const activeGroup = useContext(QuestionsContext);
     const isActive = activeGroup === id;
 
     return (
