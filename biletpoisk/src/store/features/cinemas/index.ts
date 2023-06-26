@@ -16,11 +16,13 @@ const cinemasSlice = createSlice({
                 return;
             }
 
-            state = initialState;
+            state = { ...initialState };
 
             for (let cinema of payload) {
-                state[cinema.id] = cinema;
+                state[`${cinema.id}`] = cinema;
             }
+
+            return state;
         },
     },
 });

@@ -1,9 +1,10 @@
+import { FILTER_GENRES } from '@/utils/constants';
 import { Movie } from '@/utils/types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface InitialState {
     title?: string;
-    genre?: string;
+    genre?: keyof typeof FILTER_GENRES;
     cinemaId?: string;
     filteredMovies?: Movie[];
 }
@@ -24,7 +25,7 @@ const filtersSlice = createSlice({
             state.title = payload;
         },
 
-        setGenre: (state, action: PayloadAction<string>) => {
+        setGenre: (state, action: PayloadAction<keyof typeof FILTER_GENRES>) => {
             const { payload } = action;
 
             if (!payload) {

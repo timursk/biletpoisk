@@ -1,14 +1,10 @@
 'use client';
 
-import { BoxWrapper } from '@/components/BoxWrapper/BoxWrapper';
 import { TicketCard } from '@/components/TicketCard/TicketCard';
 import styles from './basket.module.css';
 import { Modal } from '@/components/Modal/Modal';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ModalsContainer } from '@/components/PortalContainers/ModalsContainer';
-import { useSelector } from 'react-redux';
-import { selectProductAmount } from '@/store/features/basket/selectors';
 import { TotalBasketCounter } from '@/components/TotalBasketCounter/TotalBasketCounter';
 import { useGetAllBasketMovies } from '@/hooks/useGetAllBasketMovies';
 import { useAppDispatch } from '@/store/store';
@@ -36,34 +32,6 @@ export default function Basket() {
                           );
                       })
                     : null}
-                <TicketCard
-                    title={'Властелин колец: Братство кольца'}
-                    posterUrl={'https://i.postimg.cc/pdCLNMqX/1.webp'}
-                    id={'444'}
-                    genre={'fantasy'}
-                    handleDelete={() => setModalMovieId('id')}
-                />
-                <TicketCard
-                    title={'Властелин колец: Братство кольца'}
-                    posterUrl={'https://i.postimg.cc/pdCLNMqX/1.webp'}
-                    id={'445'}
-                    genre={'genre'}
-                    handleDelete={() => setModalMovieId('id')}
-                />
-                <TicketCard
-                    title={'Властелин колец: Братство кольца'}
-                    posterUrl={'https://i.postimg.cc/pdCLNMqX/1.webp'}
-                    id={'446'}
-                    genre={'asd'}
-                    handleDelete={() => setModalMovieId('id')}
-                />
-                <TicketCard
-                    title={'Властелин колец: Братство кольца'}
-                    posterUrl={'https://i.postimg.cc/pdCLNMqX/1.webp'}
-                    id={'448'}
-                    genre={'blabla'}
-                    handleDelete={() => setModalMovieId('id')}
-                />
             </div>
 
             <TotalBasketCounter />

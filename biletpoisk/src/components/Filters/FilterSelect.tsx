@@ -5,20 +5,21 @@ import {
     FC,
     MutableRefObject,
     ReactNode,
+    useCallback,
     useContext,
-    useEffect,
     useRef,
 } from 'react';
 import styles from './filterSelect.module.css';
 import Image from 'next/image';
-import { FilterSelectList } from './FilterSelectList';
 import { createPortal } from 'react-dom';
 import arrowSelect from '../../assets/icons/arrowSelect.svg';
 import classNames from 'classnames';
 import { FiltersContext } from './FiltersWrapper';
 import { setAbsoluteCSSCoordinates } from '@/utils/helpers';
+import { useHideOnScroll } from '@/hooks/useHideOnScroll';
 
 interface Props {
+    activeKey: string | null;
     placeholder: string;
     id: number;
     selectListFn: (style: CSSProperties) => ReactNode;
@@ -27,27 +28,21 @@ interface Props {
 export type BtnElementRef = MutableRefObject<HTMLButtonElement | null>;
 export type AbsoluteStylesRef = MutableRefObject<CSSProperties>;
 
-export const FilterSelect: FC<Props> = ({ placeholder, id, selectListFn }) => {
+export const FilterSelect: FC<Props> = ({ activeKey, placeholder, id, selectListFn }) => {
     const { activeFilter, switchFilter } = useContext(FiltersContext);
     const isActive = activeFilter === id;
+
     const btnElementRef: BtnElementRef = useRef(null);
     const absoluteStylesRef: AbsoluteStylesRef = useRef({});
 
-    useEffect(() => {
-        if (!isActive) {
-            return;
-        }
+    const onScroll = useCallback(() => {
+        switchFilter(-1);
+    }, [switchFilter]);
 
-        document.addEventListener('scroll', handleScroll);
-
-        function handleScroll() {
-            switchFilter(-1);
-        }
-
-        return () => {
-            document.removeEventListener('scroll', handleScroll);
-        };
-    }, [isActive, switchFilter]);
+    useHideOnScroll({
+        isActive,
+        onScroll,
+    });
 
     return (
         <>
@@ -59,7 +54,11 @@ export const FilterSelect: FC<Props> = ({ placeholder, id, selectListFn }) => {
                     switchFilter(isActive ? -1 : id);
                 }}
             >
-                <span className={styles.placeholder}>{placeholder}</span>
+                {Boolean(activeKey) ? (
+                    <span>{activeKey}</span>
+                ) : (
+                    <span className={styles.placeholder}>{placeholder}</span>
+                )}
                 <Image
                     className={classNames(styles.icon, isActive ? styles.rotateIcon : '')}
                     src={arrowSelect}

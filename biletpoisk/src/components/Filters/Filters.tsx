@@ -3,15 +3,12 @@
 import { FC } from 'react';
 import styles from './filters.module.css';
 import { BoxWrapper } from '../BoxWrapper/BoxWrapper';
-import { FILTER_GENRES, FILTER_ITEMS } from '@/utils/constants';
+import { FILTER_ITEMS } from '@/utils/constants';
 import { FilterContainer } from '../FilterContainer/FilterContainer';
 import { FilterInput } from './FilterInput';
-import { FilterSelect } from './FilterSelect';
 import { FiltersWrapper } from './FiltersWrapper';
-import { FilterSelectList } from './FilterSelectList';
-import { filtersActions } from '@/store/features/filters';
-
-interface Props {}
+import { FilterGenre } from './FilterGenre';
+import { FilterCinema } from './FilterCinema';
 
 export const Filters: FC = () => {
     return (
@@ -30,38 +27,11 @@ export const Filters: FC = () => {
                             </FilterContainer>
 
                             <FilterContainer title={FILTER_ITEMS.genre.title}>
-                                <FilterSelect
-                                    placeholder={FILTER_ITEMS.genre.placeholder}
-                                    id={FILTER_ITEMS.genre.id}
-                                    selectListFn={(style) => {
-                                        return (
-                                            <FilterSelectList
-                                                listItems={FILTER_GENRES}
-                                                style={style}
-                                                dispatchAction={filtersActions.setGenre}
-                                            />
-                                        );
-                                    }}
-                                />
+                                <FilterGenre />
                             </FilterContainer>
 
                             <FilterContainer title={FILTER_ITEMS.cinemas.title}>
-                                <FilterSelect
-                                    placeholder={FILTER_ITEMS.cinemas.placeholder}
-                                    id={FILTER_ITEMS.cinemas.id}
-                                    selectListFn={(style) => {
-                                        return (
-                                            <FilterSelectList
-                                                listItems={{
-                                                    CTfrB5PGEJHBwxCNlU4uo: 'sinema sad',
-                                                    '2a2976KdjBek0e2ZR_07V': '4 stars',
-                                                }}
-                                                style={style}
-                                                dispatchAction={filtersActions.setCinemaId}
-                                            />
-                                        );
-                                    }}
-                                />
+                                <FilterCinema />
                             </FilterContainer>
                         </FiltersWrapper>
                     </div>

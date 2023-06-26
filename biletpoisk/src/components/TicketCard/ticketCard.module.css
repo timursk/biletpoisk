@@ -5,6 +5,10 @@
 }
 
 .imgContainer {
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 120px;
+    max-height: 120px;
     border-radius: 8px;
     overflow: hidden;
 }

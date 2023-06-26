@@ -2,19 +2,13 @@ import { FC } from 'react';
 import styles from './filterSelectListItem.module.css';
 
 interface Props {
-    filterKey: string;
     title: string;
-    dispatchFn: (key: string) => void;
+    onClick: () => void;
 }
 
-export const FilterSelectListItem: FC<Props> = ({ filterKey, title, dispatchFn }) => {
+export const FilterSelectListItem: FC<Props> = ({ title, onClick }) => {
     return (
-        <li
-            className={styles.listItem}
-            onClick={() => {
-                dispatchFn(filterKey);
-            }}
-        >
+        <li className={styles.listItem} onClick={onClick}>
             {title}
         </li>
     );

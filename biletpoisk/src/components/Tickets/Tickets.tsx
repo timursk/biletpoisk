@@ -1,14 +1,14 @@
 'use client';
 
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import styles from './tickets.module.css';
-import { useGetMoviesQuery } from '@/store/services/movieApi';
 import { TicketCard } from '../TicketCard/TicketCard';
 import { useGetFilteredMovies } from '@/hooks/useGetFilteredMovies';
+import { useLoadMovies } from '@/hooks/useLoadMovies';
 
 export const Tickets: FC = () => {
-    const { data, isLoading, error } = useGetMoviesQuery();
-    const { filteredData } = useGetFilteredMovies(data);
+    const { data, isLoading, error } = useLoadMovies();
+    const { filteredData } = useGetFilteredMovies();
 
     if (isLoading) {
         return <span>Загрузка...</span>;

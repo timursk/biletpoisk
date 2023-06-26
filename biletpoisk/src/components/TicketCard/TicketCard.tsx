@@ -9,6 +9,7 @@ import { BoxWrapper } from '../BoxWrapper/BoxWrapper';
 import { Counter } from '../Counter/Counter';
 import Link from 'next/link';
 import { FILTER_GENRES } from '@/utils/constants';
+import { usePathname } from 'next/navigation';
 
 interface Props {
     title: string;
@@ -19,6 +20,8 @@ interface Props {
 }
 
 export const TicketCard: FC<Props> = ({ title, posterUrl, id, genre, handleDelete }) => {
+    const pathname = usePathname();
+
     return (
         <BoxWrapper>
             <div className={styles.container}>
@@ -37,7 +40,7 @@ export const TicketCard: FC<Props> = ({ title, posterUrl, id, genre, handleDelet
 
                     <Counter id={id} />
 
-                    {true && (
+                    {pathname === '/basket' && (
                         <button className={styles.closeBtn} onClick={handleDelete}>
                             <Image src={close} alt={'delete'} width={20} height={20} />
                         </button>
