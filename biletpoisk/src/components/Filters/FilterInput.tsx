@@ -1,12 +1,11 @@
 'use client';
 
-import { FC, useContext } from 'react';
+import { ChangeEvent, FC, useCallback, useContext, useMemo } from 'react';
 import styles from './filterInput.module.css';
 import { FiltersContext } from './FiltersWrapper';
 import { useAppDispatch } from '@/store/store';
 import { filtersActions } from '@/store/features/filters';
-import { useSelector } from 'react-redux';
-import { selectTitle } from '@/store/features/filters/selectors';
+import { debounce } from '@/utils/helpers';
 
 interface Props {
     placeholder: string;
@@ -15,19 +14,23 @@ interface Props {
 
 export const FilterInput: FC<Props> = ({ placeholder, id }) => {
     const { switchFilter } = useContext(FiltersContext);
-    const title = useSelector(selectTitle);
     const dispatch = useAppDispatch();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const handleChange = useCallback(
+        debounce((e: ChangeEvent<HTMLInputElement>) => {
+            const { value } = e.target;
+            dispatch(filtersActions.setTitle(value));
+        }, 200),
+        []
+    );
 
     return (
         <input
             className={styles.input}
             placeholder={placeholder}
             onClick={() => switchFilter(id)}
-            onChange={(e) => {
-                const { value } = e.target;
-                dispatch(filtersActions.setTitle(value));
-            }}
-            value={title}
+            onChange={handleChange}
         ></input>
     );
 };
